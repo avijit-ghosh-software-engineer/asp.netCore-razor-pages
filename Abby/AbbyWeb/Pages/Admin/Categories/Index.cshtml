@@ -29,7 +29,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@foreach(var obj in Model.Categories)
+			@foreach(var obj in Model.Categories.OrderBy(x=>x.DisplayOrder))
 			{
 				<tr>
 					<td width="50%">@obj.Name</td>

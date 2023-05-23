@@ -52,7 +52,7 @@ namespace Abby.DataAccess.DbInitializer
 
                 ApplicationUser user = _db.ApplicationUser.FirstOrDefault(u => u.Email == "admin@gmail.com");
 
-                //_userManager.AddToRoleAsync(user, SD.ManagerRole).GetAwaiter().GetResult();
+                _userManager.AddToRoleAsync(user, SD.ManagerRole).GetAwaiter().GetResult();
 
 
 
