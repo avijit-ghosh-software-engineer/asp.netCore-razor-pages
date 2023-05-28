@@ -80,15 +80,14 @@ namespace AbbyWeb.Pages.Customer.Cart
                 _unitOfWork.Save();
 
 
-                var domain = "https://localhost:44322/";
+                var domain = "https://localhost:44390/";
                 var options = new SessionCreateOptions
                 {
-                    LineItems = new List<SessionLineItemOptions>()
-                ,
+                    LineItems = new List<SessionLineItemOptions>(),
                     PaymentMethodTypes = new List<string>
-                {
-                  "card",
-                },
+                    {
+                      "card",
+                    },
                     Mode = "payment",
                     SuccessUrl = domain + $"customer/cart/OrderConfirmation?id={OrderHeader.Id}",
                     CancelUrl = domain + "customer/cart/index",
@@ -103,7 +102,7 @@ namespace AbbyWeb.Pages.Customer.Cart
                         {
                             //7.99->799
                             UnitAmount = (long)(item.MenuItem.Price * 100),
-                            Currency = "usd",
+                            Currency = "inr",
                             ProductData = new SessionLineItemPriceDataProductDataOptions
                             {
                                 Name = item.MenuItem.Name

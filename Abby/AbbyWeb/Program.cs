@@ -6,6 +6,7 @@ using Abby.Utility;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -54,8 +55,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 SeedDatabase();
-//string key = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
-//StripeConfiguration.ApiKey = key;
+string key = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
+StripeConfiguration.ApiKey = key;
 app.UseAuthentication();
 
 app.UseAuthorization();

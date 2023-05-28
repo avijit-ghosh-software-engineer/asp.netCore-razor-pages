@@ -1,15 +1,12 @@
 using Abby.DataAccess.Repository.IRepository;
 using Abby.Models;
 using Abby.Utility;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Stripe.Checkout;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace AbbyWeb.Pages.Customer.Cart
 {
-    public class OrderConfirmationModel : PageModel
+	public class OrderConfirmationModel : PageModel
     {
         private readonly IUnitOfWork _unitOfWork;
         public int OrderId { get; set; }
