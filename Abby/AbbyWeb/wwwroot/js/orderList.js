@@ -31,7 +31,7 @@ function loadList(param) {
             { "data": "id", "width": "15%" },
             { "data": "pickupName", "width": "15%" },
             { "data": "applicationUser.email", "width": "15%" },
-            { "data": "orderTotal", "width": "15%" },
+            { "data": "orderTotal", "render": function (data) { return `<span>₹${data}</span>` }, "width": "15%" },
             { "data": "pickUpTime", "width": "25%" },
             {
                 "data": "id",

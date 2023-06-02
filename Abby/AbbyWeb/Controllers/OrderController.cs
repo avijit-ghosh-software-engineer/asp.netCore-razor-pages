@@ -23,28 +23,21 @@ namespace AbbyWeb.Controllers
 
             var OrderHeaderList = _unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser");
 
-            if (status == "cancelled")
+            switch (status)
             {
-                OrderHeaderList = OrderHeaderList.Where(u => u.Status == SD.StatusCancelled || u.Status == SD.StatusRejected);
-            }
-            else
-            {
-                if (status == "completed")
-                {
-                    OrderHeaderList = OrderHeaderList.Where(u => u.Status == SD.StatusCompleted);
-                }
-                else
-                {
-                    if (status == "ready")
-                    {
-                        OrderHeaderList = OrderHeaderList.Where(u => u.Status == SD.StatusReady);
-                    }
-                    else
-                    {
-                        OrderHeaderList = OrderHeaderList.Where(u => u.Status == SD.StatusSubmitted || u.Status == SD.StatusInProcess);
-                    }
-                }
-            }
+                case "cancelled":
+					OrderHeaderList = OrderHeaderList.Where(u => u.Status == SD.StatusCancelled || u.Status == SD.StatusRejected);
+					break;
+				case "completed":
+					OrderHeaderList = OrderHeaderList.Where(u => u.Status == SD.StatusCompleted);
+					break;
+				case "ready":
+					OrderHeaderList = OrderHeaderList.Where(u => u.Status == SD.StatusReady);
+					break;
+                default:
+					OrderHeaderList = OrderHeaderList.Where(u => u.Status == SD.StatusSubmitted || u.Status == SD.StatusInProcess);
+					break;
+    		}
 
             return Json(new { data = OrderHeaderList });
         }

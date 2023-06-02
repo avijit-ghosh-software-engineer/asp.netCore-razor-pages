@@ -80,13 +80,13 @@
 								<h6 class="my-0">@detail.Name</h6>
 								<small class="text-muted">Quantity : @detail.Count</small>
 							</div>
-							<span class="text-muted">$@(detail.Price*detail.Count)</span>
+							<span class="text-muted">₹@(detail.Price*detail.Count)</span>
 						</li>
 					}
 
 					<li class="list-group-item d-flex justify-content-between bg-light">
-						<span class="text-info"> Total (USD)</span>
-						<strong class="text-info">$@Model.OrderDetailVM.OrderHeader.OrderTotal</strong>
+						<span class="text-info"> Total (INR)</span>
+						<strong class="text-info">₹@Model.OrderDetailVM.OrderHeader.OrderTotal</strong>
 					</li>
 
 				</ul>
@@ -117,7 +117,7 @@
 						<div class="col-6">
 							<button type="submit" class="btn btn-danger form-control"
 								asp-page-handler="OrderRefund" asp-route-orderId="@Model.OrderDetailVM.OrderHeader.Id">
-								<i class="bi bi-currency-dollar"></i> Refund Order
+								₹ Refund Order
 							</button>
 						</div>
 
